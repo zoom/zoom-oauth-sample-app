@@ -16,7 +16,7 @@ Clone the repo using git clone.
 
 
 
-> In the config.js file, input your clientID, clientSecret, and redirectUrl. 
+> In the config.js file, input your clientID, clientSecret, and redirectUrl. Please note to test locally the redirectUrl can't be localhost, you can use ngrok or a similar service instead. 
 ``` 
    const config = {
 	development :{
@@ -36,6 +36,9 @@ Clone the repo using git clone.
 
 > Start the node app.
 ` node.index.js `
+
+> Go to localhost:3000 in the browser
+
 
 ### For more Information about Zooms API and JWT
 Documentation is available on the [Zoom Oauth docs site](https://marketplace.zoom.us/docs/oauth-with-zoom)
