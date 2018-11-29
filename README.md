@@ -42,3 +42,6 @@ Clone the repo using git clone.
 
 ### For more Information about Zooms API and JWT
 Documentation is available on the [Zoom Oauth docs site](https://marketplace.zoom.us/docs/oauth-with-zoom)
+
+## Support
+For any questions or issues, please visit our new Community Support Forum at https://devforum.zoom.us/
