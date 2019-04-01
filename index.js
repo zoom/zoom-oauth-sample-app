@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const config = require('./config');
 const request = require('request');
+var resp;
 
 app.get('/', (req, res) => {
 
@@ -17,6 +18,18 @@ app.get('/', (req, res) => {
 
             //the response should be a JSON payload
             body = JSON.parse(body);
+            //html for displaying response in the browser
+            var title1 ='<center><h3>Your access token: </h3></center>' 
+            var title2 ='<center><h3>Your refresh token: </h3></center>' 
+            var result1 = title1 + '<code><pre style="background-color:#aef8f9;">' + body.access_token + '</pre></code>';
+            var result2 = title2 + '<code><pre style="background-color:#aef8f9;">' + body.refresh_token + '</pre></code>';
+
+            var title ='<center><h3>User\'s information:</h3></center>' 
+        //Prettify the JSON format using pre tag and JSON.stringify
+            
+            //print access_token in the browser
+            //res.send(body.access_token); 
+            console.log(body.access_token);
             
             //get refresh token
             let refresh_token = body.refresh_token
@@ -30,11 +43,14 @@ app.get('/', (req, res) => {
                         console.log('Error in API ', error)
                     }else{
                         body = JSON.parse(body);
+                        //display response in console
                         console.log('API call ', body);
-                        //do something with the data
-                        //this is most likely where you want to connect the zoom user to the calendly user, there will be a zoom user id
-                        //add where you'll want to store the access token for future requests
+                        //display response in browser
+                        var result = title + '<code><pre style="background-color:#aef8f9;">'+JSON.stringify(body, null, 2)+ '</pre></code>'
+                        res.send(result1 + '<br>' + result2 + '<br>' +  result);
+ 
                     }
+
                 }).auth(null, null, true, body.access_token);
             
             } else {
