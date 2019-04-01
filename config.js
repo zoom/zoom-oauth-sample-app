@@ -1,16 +1,16 @@
-const env = process.env.NODE_ENV || 'development'
+const env = process.env.NODE_ENV || 'production'
 
 //insert your API Key & Secret for each environment, keep this file local and never push it to repo.
 const config = {
 	development :{
-		clientID : '',
-		clientSecret : '',
-		redirectUrl : ''
+		clientID : '***REMOVED***',
+		clientSecret : '***REMOVED***',
+		redirectUrl : '***REMOVED***'
 	},
 	production:{	
-		clientID : '',
-		clientSecret : '',
-		redirectUrl: ''
+		clientID : '***REMOVED***',
+		clientSecret : '***REMOVED***',
+		redirectUrl: '***REMOVED***'
 	}
 };
 
