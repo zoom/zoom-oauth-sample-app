@@ -7,7 +7,7 @@
 ### Install
 
 Clone the repo using git clone.
-` git clone https://github.com/zoom/zoom-oath-sample-app.git`
+` git clone https://github.com/zoom/zoom-oauth-sample-app.git`
 
 > Install the dependent node modules.
 ``` npm install ```
