@@ -11,27 +11,19 @@ const app = express()
 
 app.get('/', (req, res) => {
 
-    // Step 1: 
-    // Check if the code parameter is in the url 
-    // if an authorization code is available, the user has most likely been redirected from Zoom OAuth
-    // if not, the user needs to be redirected to Zoom OAuth to authorize
-
-    if (req.query.code) {
-
-        // Step 3: 
+        // Step 1: 
         // Request an access token using the auth code
 
-        let url = 'https://zoom.us/oauth/token?grant_type=authorization_code&code=' + req.query.code + '&redirect_uri=' + process.env.redirectURL;
+        let url = 'https://zoom.us/oauth/token?grant_type=account_credentials&account_id=' + process.env.account_id;
 
         request.post(url, (error, response, body) => {
 
             // Parse response to JSON
             body = JSON.parse(body);
 
-            // Logs your access and refresh tokens in the browser
+            // Logs your access tokens in the browser
             console.log(`access_token: ${body.access_token}`);
-            console.log(`refresh_token: ${body.refresh_token}`);
-
+          
             if (body.access_token) {
 
                 // Step 4:
@@ -41,7 +33,8 @@ app.get('/', (req, res) => {
                 // The `/me` context restricts an API call to the user the token belongs to
                 // This helps make calls to user-specific endpoints instead of storing the userID
 
-                request.get('https://api.zoom.us/v2/users/me', (error, response, body) => {
+                request.get('https://api.zoom.us/v2/users/' + process.env.user_id, (error, response, body) => {
+                        console.log(`User Id is ${process.env.user_id}`)
                     if (error) {
                         console.log('API Response Error: ', error)
                     } else {
@@ -82,12 +75,12 @@ app.get('/', (req, res) => {
         }).auth(process.env.clientID, process.env.clientSecret);
 
         return;
-
-    }
+    
+   })
 
     // Step 2: 
     // If no authorization code is available, redirect to Zoom OAuth to authorize
-    res.redirect('https://zoom.us/oauth/authorize?response_type=code&client_id=' + process.env.clientID + '&redirect_uri=' + process.env.redirectURL)
-})
+   // res.redirect('https://zoom.us/oauth/authorize?response_type=code&client_id=' + process.env.clientID + '&redirect_uri=' + process.env.redirectURL)
+//})
 
 app.listen(4000, () => console.log(`Zoom Hello World app listening at PORT: 4000`))
