@@ -58,7 +58,7 @@ Run ngrok on the same localhost port (4000):
 ~/./ngrok http 4000
 ```
 
-This will generate a forwarding link. Copy this and add it into your `.env` file as the `redirectURL`. Keep ngrok running! If the linkage disconnects, we'll need to readd a new redirectURL.
+This will generate a forwarding link. Copy this and add it into your `.env` file as the `redirectURL`. Keep ngrok running! If the linkage disconnects, we'll need to read a new redirectURL.
 
 Example: 
 
