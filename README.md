@@ -4,7 +4,7 @@ Use of this sample app is subject to our [Terms of Use](https://zoom.us/docs/en-
 
 This is a Hello World app using an OAuth Marketplace App client ID and Secret to create an OAuth token, used to call the Zoom API. 
 
-Follow allong with relevant Zoom OAuth documentation as we set this up: 
+Follow along with relevant Zoom OAuth documentation as we set this up: 
 
 1. [OAuth with Zoom](https://marketplace.zoom.us/docs/guides/authorization/oauth/oauth-with-zoom) 
 2. [Create an OAuth App](https://marketplace.zoom.us/docs/guides/getting-started/app-types/create-oauth-app) 
