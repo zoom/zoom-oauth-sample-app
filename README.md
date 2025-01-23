@@ -37,9 +37,9 @@ touch .env
 Copy the following into this file, which we'll add your own values to:
 
 ```
-clientID=
-clientSecret=
-redirectURL=
+CLIENT_ID=
+CLIENT_SECRET=
+REDIRECT_URL=
 ```
 
 > Remember: Never share or store your client credentials publicly. Your `.env` is included in the `.gitignore` file to ensure these files won't be included in a git workflow.
@@ -58,12 +58,12 @@ Run ngrok on the same localhost port (4000):
 ~/./ngrok http 4000
 ```
 
-This will generate a forwarding link. Copy this and add it into your `.env` file as the `redirectURL`. Keep ngrok running! If the linkage disconnects, we'll need to readd a new redirectURL.
+This will generate a forwarding link. Copy this and add it into your `.env` file as the `REDIRECT_URL`. Keep ngrok running! If the linkage disconnects, we'll need to readd a new REDIRECT_URL.
 
 Example: 
 
 ```
-redirectURL=https://12345678.ngrok.io
+REDIRECT_URL=https://12345678.ngrok.io
 ```
 
 
@@ -78,9 +78,9 @@ Copy these credentials and add them to your `.env` file.
 Example: 
 
 ```
-clientID=1234567890
-clientSecret=13245678901234567890
-redirectURL=https://12345678.ngrok.io
+CLIENT_ID=1234567890
+CLIENT_SECRET=13245678901234567890
+REDIRECT_URL=https://12345678.ngrok.io
 ```
 
 ### Add your Redirect URL from ngrok to your app
@@ -107,7 +107,7 @@ To request data,we'll need to add a Scope to our app. The only data we need is f
 
 ## Install app
 
-With our app running on `localhost:4000`, a live redirectURL from ngrok, and proper scopes requested we can now install the app on our account. 
+With our app running on `localhost:4000`, a live REDIRECT_URL from ngrok, and proper scopes requested we can now install the app on our account. 
 
 Click **Install** or copy the Installation URL into a browser.
 
