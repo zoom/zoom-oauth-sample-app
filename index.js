@@ -3,8 +3,8 @@ const { URL, URLSearchParams } = require('url');
 
 const http = require('http');
 
-// Create an HTTP server
-const server = http.createServer((req, res) => {
+// Create an HTTPS server
+const server = https.createServer((req, res) => {
     const requestURL = new URL(req.url, `http://${req.headers.host}`);
 
     // Function to handle HTTPS requests
